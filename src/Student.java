@@ -2,39 +2,52 @@ import java.util.ArrayList;
 
 public class Student {
 
-    private String firstName;
-    private String lastName;
-    private ArrayList<Registration> regCourses;
+    private String studentName;
+    private int studentID;
+    private ArrayList<Registration> courseList;
 
-    public Student(String firstName, String lastName){
-        setFirstName(firstName);
-        setLastName(lastName);
+    public Student(String studentName, int studentID){
+        this.setStudentName(studentName);
+        this.setStudentID(studentID);
+        courseList = new ArrayList <Registration>();
     }
-    
 
-    public void register(Registration course){
-        if(regCourses.size() < 6){
-            regCourses.add(course);
+
+    public String getStudentName() {
+        return this.studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public int getStudentID() {
+        return this.studentID;
+    }
+
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
+    }
+
+    public void register(CourseCatalogue catalogue, String courseName, String courseNumber, int secNum){
+        
+        Course myCourse = catalogue.searchCatalogue(courseName, courseNumber);
+
+        if (myCourse == null){
+            return;
         }
-        else{
-            //some error
+        // if the course exists, look at the section
+        CourseOffering offering = myCourse.getOfferingList().get(secNum - 1); // must fix this!!
+        Registration reg = new Registration(this, offering);
+        addRegistration(reg);
+
+    }
+
+
+    public void addRegistration(Registration reg){
+        if(courseList.size() < 6){
+            courseList.add(reg);
         }
-    }
-
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
 }

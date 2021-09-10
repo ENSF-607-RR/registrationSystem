@@ -2,57 +2,32 @@ import java.util.*;
 
 public class CourseOffering {
     
-    private String courseName;
-    private String courseNumber;
-    private String prof;
-    private String assistant;
-    private ArrayList<Registration> classList;
+    private int sectionNum;
+    private int sectionCap;
+    private Course theCourse;
+    private ArrayList<Registration> studentList;
 
-    public CourseOffering(String prof, String assistant){
-        setProf(prof);
-        setAssistant(assistant);
-    }
-    
+    public CourseOffering(int sectionNum, int sectionCap){
+        this.setSectionCap(sectionCap);
+        this.setSectionNum(sectionNum);
+        studentList = new ArrayList <Registration>();
+    }   
 
-    public ArrayList<Registration> getClassList() {
-        return this.classList;
-    }
-
-    public void addStudent(Registration registrant){
-        classList.add(registrant);
+    public int getSectionNum() {
+        return this.sectionNum;
     }
 
-
-    public String getCourseName() {
-        return this.courseName;
+    public void setSectionNum(int sectionNum) {
+        this.sectionNum = sectionNum;
     }
 
-    public void setCourseName(Course course) {
-        this.courseName = course.getCourseName();
+    public int getSectionCap() {
+        return this.sectionCap;
     }
 
-    public String getCourseNumber() {
-        return this.courseNumber;
+    public void setSectionCap(int sectionCap) {
+        this.sectionCap = sectionCap;
     }
 
-    public void setCourseNumber(Course course) {
-        this.courseNumber = course.getCourseNumber();
-    }
-
-    public String getProf() {
-        return this.prof;
-    }
-
-    public void setProf(String prof) {
-        this.prof = prof;
-    }
-
-    public String getAssistant() {
-        return this.assistant;
-    }
-
-    public void setAssistant(String assistant) {
-        this.assistant = assistant;
-    }
 
 }

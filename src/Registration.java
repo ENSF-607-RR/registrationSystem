@@ -2,6 +2,7 @@ public class Registration {
     
     private Student student;
     private CourseOffering courseOffering;
+    private char grade;
 
     public Registration(Student student, CourseOffering courseOffering) {
         this.student = student;
@@ -9,20 +10,8 @@ public class Registration {
     }
     
 
-    public Student getStudent() {
-        return this.student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public CourseOffering getCourseOffering() {
-        return this.courseOffering;
-    }
-
-    public void setCourseOffering(CourseOffering courseOffering) {
-        this.courseOffering = courseOffering;
+    public void addRegistration(Registration reg){
+        student.addRegistration(this);
     }
 
     

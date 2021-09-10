@@ -4,11 +4,12 @@ public class Course {
 
     private String courseName;
     private String courseNumber;
-    private ArrayList<Course> prereqs;
+    private ArrayList<Course> preReq;
+    private ArrayList<CourseOffering> offeringList;
 
     public Course (String courseName, String courseNumber){
-        setCourseName(courseName);
-        setCourseNumber(courseNumber);
+        this.setCourseName(courseName);
+        this.setCourseNumber(courseNumber);
     }
     
     public String getCourseName() {
@@ -27,11 +28,26 @@ public class Course {
         this.courseNumber = courseNumber;
     }
 
-    public void addPrereq(Course prereq){
-        prereqs.add(prereq);
+
+    public ArrayList<Course> getPreReq() {
+        return this.preReq;
     }
 
-    public ArrayList<Course> getPrereqs(){
-        return prereqs;
+    public void setPreReq(ArrayList<Course> preReq) {
+        this.preReq = preReq;
     }
+
+    public ArrayList<CourseOffering> getOfferingList() {
+        return this.offeringList;
+    }
+
+    public void setOfferingList(ArrayList<CourseOffering> offeringList) {
+        this.offeringList = offeringList;
+    }
+
+    @Override
+    public String toString(){
+        return courseName + " " + courseNumber + "\n"; 
+    }
+
 }
