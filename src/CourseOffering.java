@@ -8,10 +8,15 @@ public class CourseOffering {
     private ArrayList<Registration> studentList;
 
     public CourseOffering(int sectionNum, int sectionCap){
+        
         this.setSectionCap(sectionCap);
         this.setSectionNum(sectionNum);
         studentList = new ArrayList <Registration>();
     }   
+
+    public void addRegistration(Registration reg){
+        studentList.add(reg);
+    }
 
     public int getSectionNum() {
         return this.sectionNum;
@@ -29,5 +34,22 @@ public class CourseOffering {
         this.sectionCap = sectionCap;
     }
 
+    public Course getTheCourse() {
+        return this.theCourse;
+    }
+
+    public void setTheCourse(Course theCourse) {
+        this.theCourse = theCourse;
+    }
+
+    public String toString(){
+        StringBuffer buffer = new StringBuffer();
+
+        buffer.append("Section Number: " + getSectionNum());
+        buffer.append("\n");
+        buffer.append("Section Capacity: " + getSectionCap());
+
+        return buffer.toString();
+    }
 
 }
