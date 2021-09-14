@@ -190,9 +190,10 @@ public class CourseRegistrationApp {
 
 
     private static void showStudentsCourses(Student student) {
+        
         System.out.println(generateHeader(student.getStudentName() + "'s" + " Courses"));
         
-        student.listRegistrations();
+        student.listCourses();
     }
 
     public static void main(String[] args){

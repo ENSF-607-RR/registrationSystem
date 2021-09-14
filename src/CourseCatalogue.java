@@ -18,15 +18,16 @@ public class CourseCatalogue {
         imaginaryDB.add(new Course("ENSF", "607"));
 
         for (Course c : imaginaryDB){
+            
             c.addPreReq(new Course("ENGG", "101"));
             c.addPreReq(new Course("ENSF", "592"));
         }
 
         for (Course c: imaginaryDB){
 
-            c.addCourseOffering(new CourseOffering(1, 80));
-            c.addCourseOffering(new CourseOffering(2, 90));
-            c.addCourseOffering(new CourseOffering(3, 100));
+            c.addCourseOffering(new CourseOffering(1, 80, c));
+            c.addCourseOffering(new CourseOffering(2, 90, c));
+            c.addCourseOffering(new CourseOffering(3, 100, c));
         }
         
         return imaginaryDB;

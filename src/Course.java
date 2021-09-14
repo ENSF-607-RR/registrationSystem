@@ -88,14 +88,6 @@ public class Course {
 
         StringBuffer buffer = new StringBuffer();
         buffer.append(courseName + " " + courseNumber + "\n");
-        buffer.append("Pre-requistes: ");
-
-        for(Course c: preReqList){
-            buffer.append(c.getCourseName() + " " + c.getCourseNumber() + " ");
-        }
-
-        buffer.append("\n");
-
         return buffer.toString();
     }
 

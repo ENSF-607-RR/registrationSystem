@@ -13,7 +13,8 @@ public class Registration {
     
 
     public void addRegistration(){
-        student.addRegistration(this);
+
+        // student.addRegistration(this);
         courseOffering.addRegistration(this);
     }
     

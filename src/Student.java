@@ -22,17 +22,20 @@ public class Student {
         }
 
         // if the course exists, look at the section
-        CourseOffering offering = myCourse.getOfferingList().get(secNum - 1); // must fix this!!
+        CourseOffering offering = myCourse.searchOfferings(secNum);
         Registration reg = new Registration(this, offering);
         addRegistration(reg);
+        //reg.addRegistration();
     }
 
     public void addRegistration(Registration reg){
         courseList.add(reg);
     }
 
-    public void listRegistrations(){
+    public void listCourses(){
+        
         for(Registration r: courseList){
+            //System.out.println(r.getCourseOffering());
             System.out.println(r.getCourseOffering().getTheCourse());
         }
     }

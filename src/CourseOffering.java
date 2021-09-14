@@ -7,11 +7,13 @@ public class CourseOffering {
     private Course theCourse;
     private ArrayList<Registration> studentList;
 
-    public CourseOffering(int sectionNum, int sectionCap){
+    public CourseOffering(int sectionNum, int sectionCap, Course theCourse){
         
         this.setSectionCap(sectionCap);
         this.setSectionNum(sectionNum);
+        this.setTheCourse(theCourse);
         studentList = new ArrayList <Registration>();
+        
     }   
 
     public void addRegistration(Registration reg){
