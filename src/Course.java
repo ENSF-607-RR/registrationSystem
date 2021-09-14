@@ -31,6 +31,8 @@ public class Course {
             }
         }
 
+        System.out.println("ERROR: Course offering not found.");
+
         return null;
     }
 

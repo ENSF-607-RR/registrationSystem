@@ -16,8 +16,13 @@ public class CourseOffering {
         
     }   
 
+    // add a registration to offering's student list
     public void addRegistration(Registration reg){
         studentList.add(reg);
+    }
+
+    public void removeRegistration(Registration reg){
+        studentList.remove(reg);
     }
 
     public int getSectionNum() {

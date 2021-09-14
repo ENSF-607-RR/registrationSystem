@@ -1,23 +1,35 @@
 public class Registration {
     
     private Student student;
-    private CourseOffering courseOffering;
+    private CourseOffering offering;
     private char grade;
 
-    public Registration(Student student, CourseOffering courseOffering) {
+    // method to register a student in a course offering
+    public void register (Student student, CourseOffering offering){
         
-        this.student = student;
-        this.courseOffering = courseOffering;
+        setStudent(student);
+        setOffering(offering);
         addRegistration();
     }
     
-
+    // method to add registration to student and offering
     public void addRegistration(){
+        // add registration to student's course list
+        student.addRegistration(this);
+        // add registration to course offering's student list
+        offering.addRegistration(this);
+    }
 
-        // student.addRegistration(this);
-        courseOffering.addRegistration(this);
+    public void unregister(Student student, CourseOffering offering){
+        removeRegistration();
+
     }
     
+
+    private void removeRegistration() {
+        student.removeRegistration(this);
+        offering.removeRegistration(this);
+    }
 
     public Student getStudent() {
         return this.student;
@@ -27,8 +39,12 @@ public class Registration {
         this.student = student;
     }
 
-    public CourseOffering getCourseOffering() {
-        return this.courseOffering;
+    public CourseOffering getOffering() {
+        return this.offering;
+    }
+
+    public void setOffering(CourseOffering offering){
+        this.offering = offering;
     }
 
     public char getGrade() {
