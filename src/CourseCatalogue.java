@@ -16,6 +16,10 @@ public class CourseCatalogue {
         imaginaryDB.add(new Course("ENGG", "233"));
         imaginaryDB.add(new Course("PHYS", "259"));
         imaginaryDB.add(new Course("ENSF", "607"));
+        imaginaryDB.add(new Course("ENSF", "608"));
+        imaginaryDB.add(new Course("PHYS", "313"));
+        imaginaryDB.add(new Course("ENGG", "101"));
+        imaginaryDB.add(new Course("ENSF", "592"));
 
         for (Course c : imaginaryDB){
             
@@ -25,20 +29,24 @@ public class CourseCatalogue {
 
         for (Course c: imaginaryDB){
 
-            c.addCourseOffering(new CourseOffering(1, 80, c));
-            c.addCourseOffering(new CourseOffering(2, 90, c));
-            c.addCourseOffering(new CourseOffering(3, 100, c));
+            c.addCourseOffering(new CourseOffering(1, 80));
+            c.addCourseOffering(new CourseOffering(2, 90));
+            c.addCourseOffering(new CourseOffering(3, 100));
+
+            for(CourseOffering o: c.getOfferingList()){
+                o.setTheCourse(c);
+            }
         }
         
         return imaginaryDB;
     }
 
 
-    public Course searchCatalogue(String courseName, String courseNumber){
+    public Course searchCatalogue(String courseName, String courseNum){
         for(Course c: courseList){
             // could override equals method in course
             if(c.getCourseName().equals(courseName) &&
-                c.getCourseNumber().equals(courseNumber)){
+                c.getCourseNum().equals(courseNum)){
                 return c;
             }
         }

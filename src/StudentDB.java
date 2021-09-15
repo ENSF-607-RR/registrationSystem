@@ -17,9 +17,16 @@ public class StudentDB {
         ArrayList<Student> imagainaryStudentDB = new ArrayList<Student>();
 
         // create imaginary students
-        imagainaryStudentDB.add(new Student("Jon", 1));
+        imagainaryStudentDB.add(new Student("Holly", 1));
         imagainaryStudentDB.add(new Student("Jane", 2));
         imagainaryStudentDB.add(new Student("Thomas", 3));
+        imagainaryStudentDB.add(new Student("Ron", 4));
+        imagainaryStudentDB.add(new Student("Randy", 5));
+        imagainaryStudentDB.add(new Student("Aarom", 6));
+        imagainaryStudentDB.add(new Student("Jessica", 7));
+        imagainaryStudentDB.add(new Student("Jon", 8));
+        imagainaryStudentDB.add(new Student("Timothy", 9));
+        imagainaryStudentDB.add(new Student("Karen", 10));       
 
         return imagainaryStudentDB;
     }   

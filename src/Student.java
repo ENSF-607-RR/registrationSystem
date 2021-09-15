@@ -13,9 +13,16 @@ public class Student {
         setRegList(new ArrayList<Registration>());
     }
 
-    public void register(CourseCatalogue catalogue, String courseName, String courseNumber, int secNum){
+    // method to register a student in a course
+    public void register(CourseCatalogue catalogue, String courseName, String courseNum, int secNum){
         
-        Course myCourse = catalogue.searchCatalogue(courseName, courseNumber);
+        // student is already registered in 6 courses
+        if(regList.size() > 6){
+            System.out.println("ERROR: Student registration is max.");
+            return;
+        }
+
+        Course myCourse = catalogue.searchCatalogue(courseName, courseNum);
 
         if (myCourse == null){
             System.out.println("ERROR: Course not found.");
@@ -25,9 +32,8 @@ public class Student {
         // if the course exists, look at the section
         CourseOffering offering = myCourse.searchOfferings(secNum);
         Registration reg = new Registration();
-
-        // initiate student - offering connection
         reg.register(this, offering);;
+        System.out.println("Student regeistered.");
     }
 
     // adds a registration to the students registration list
@@ -36,25 +42,27 @@ public class Student {
     }
 
     // removes student from registration
-    public void unregister(String courseName, String courseNumber, int secNum){
+    public void unregister(String courseName, String courseNum, int secNum){
 
-        Registration reg = searchRegList(courseName, courseNumber, secNum);
+        Registration reg = searchRegList(courseName, courseNum, secNum);
 
         // registration not found
         if(reg == null){
             return;
         }
 
-        reg.unregister(this, reg.getOffering());;
+        reg.unregister(this, reg.getOffering());
+        System.out.println("Student unregistered.");
     }
 
     // searches students course list for registration
-    private Registration searchRegList(String courseName, String courseNumber, int secNum){
-        // check if student is registered for course
+    private Registration searchRegList(String courseName, String courseNum, int secNum){
+        
         for(Registration r: regList){
+            // student is registered for course
             if(r.getOffering().getTheCourse().getCourseName().equals(courseName) && 
-            r.getOffering().getTheCourse().getCourseNumber().equals(courseNumber) &&
-            r.getOffering().getSectionNum() == secNum){
+                r.getOffering().getTheCourse().getCourseNum().equals(courseNum) &&
+                r.getOffering().getSectionNum() == secNum){ // fix this if statement
                 return r;
             }
         }
@@ -72,7 +80,7 @@ public class Student {
     public void listCourses(){
         
         for(Registration r: regList){
-            System.out.print(r.getOffering().getTheCourse());
+            System.out.print(r);
         }
     }
 

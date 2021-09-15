@@ -14,23 +14,16 @@ public class Registration {
     
     // method to add registration to student and offering
     public void addRegistration(){
-        // add registration to student's course list
         student.addRegistration(this);
-        // add registration to course offering's student list
         offering.addRegistration(this);
     }
 
+    // method to remove registration from student and offering
     public void unregister(Student student, CourseOffering offering){
-        removeRegistration();
-
-    }
-    
-
-    private void removeRegistration() {
         student.removeRegistration(this);
         offering.removeRegistration(this);
     }
-
+    
     public Student getStudent() {
         return this.student;
     }
@@ -49,5 +42,15 @@ public class Registration {
 
     public char getGrade() {
         return this.grade;
+    }
+
+    @Override
+    public String toString(){
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(this.getOffering().getTheCourse());
+        buffer.append("Section Number: " + this.getOffering().getSectionNum() + "\n");
+
+        return buffer.toString();
+
     }
 }

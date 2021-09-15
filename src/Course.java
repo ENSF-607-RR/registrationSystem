@@ -3,14 +3,14 @@ import java.util.ArrayList;
 public class Course {
 
     private String courseName;
-    private String courseNumber;
+    private String courseNum;
     private ArrayList<Course> preReqList;
     private ArrayList<CourseOffering> offeringList;
 
-    public Course (String courseName, String courseNumber){
+    public Course (String courseName, String courseNum){
         
         this.setCourseName(courseName);
-        this.setCourseNumber(courseNumber);
+        this.setcourseNum(courseNum);
         preReqList = new ArrayList<Course>();
         offeringList = new ArrayList<CourseOffering>();
     }
@@ -18,7 +18,6 @@ public class Course {
     public void listOfferingList(){
         
         for(CourseOffering o: offeringList){
-            System.out.println("");
             System.out.println(o);
         }
     }
@@ -57,14 +56,14 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public String getCourseNumber() {
+    public String getCourseNum() {
 
-        return this.courseNumber;
+        return this.courseNum;
     }
 
-    public void setCourseNumber(String courseNumber) {
+    public void setcourseNum(String courseNum) {
 
-        this.courseNumber = courseNumber;
+        this.courseNum = courseNum;
     }
 
     public ArrayList<Course> getPreReq() {
@@ -89,7 +88,7 @@ public class Course {
     public String toString(){
 
         StringBuffer buffer = new StringBuffer();
-        buffer.append(courseName + " " + courseNumber + "\n");
+        buffer.append(courseName + " " + courseNum + "\n");
         return buffer.toString();
     }
 

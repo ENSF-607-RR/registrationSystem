@@ -146,7 +146,6 @@ public class CourseRegistrationApp {
 
                     // register the student
                     student.register(catalogue, courseName, courseNum, secNum);
-                    System.out.println("Registration Succesful.");
                     break;
 
                 // unregister from course
@@ -161,6 +160,7 @@ public class CourseRegistrationApp {
                     secNum = Integer.parseInt(userInput());
                     student.unregister(courseName, courseNum, secNum);
                     break;
+                    
                 // view students courses
                 case "5":
 

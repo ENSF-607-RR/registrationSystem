@@ -7,11 +7,10 @@ public class CourseOffering {
     private Course theCourse;
     private ArrayList<Registration> studentList;
 
-    public CourseOffering(int sectionNum, int sectionCap, Course theCourse){
+    public CourseOffering(int sectionNum, int sectionCap){
         
         this.setSectionCap(sectionCap);
         this.setSectionNum(sectionNum);
-        this.setTheCourse(theCourse);
         studentList = new ArrayList <Registration>();
         
     }   
@@ -19,6 +18,12 @@ public class CourseOffering {
     // add a registration to offering's student list
     public void addRegistration(Registration reg){
         studentList.add(reg);
+
+        // warning if not enough students are registed
+        if(studentList.size() < 8){
+            System.out.println("WARNING: Course has " + studentList.size() +
+                                 " student(s) registered, but it requires at least 8 to run. Course may not be offered.");
+        }
     }
 
     public void removeRegistration(Registration reg){
@@ -51,10 +56,9 @@ public class CourseOffering {
 
     public String toString(){
         StringBuffer buffer = new StringBuffer();
-
-        buffer.append("Section Number: " + getSectionNum());
-        buffer.append("\n");
-        buffer.append("Section Capacity: " + getSectionCap());
+        
+        buffer.append("Section Number: " + getSectionNum() + "\n");
+        buffer.append("Section Capacity: " + getSectionCap() + "\n");
 
         return buffer.toString();
     }
